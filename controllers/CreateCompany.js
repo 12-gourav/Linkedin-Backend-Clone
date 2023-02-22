@@ -78,7 +78,11 @@ export const CreateCompany = async (req,res)=>{
         
         console.log(data,"1");
         console.log(data2,"2")
-        const companyData = await Company.create({id:id,name:name,tag:tag,email:email,size:size,discreption:dis,contact1:contact1,contact2:contact2,city:city,country:country,address:address,pincode:pincode,website:Website,logo:{id:data.ETag,url:data.Location},banner:{id:data2.ETag,url:data2.Location}})
+        const companyData = await Company.create({id:id,name:name,tag:tag,email:email,size:size,
+            discreption:dis,contact1:contact1,contact2:contact2,
+            city:city,country:country,address:address,pincode:pincode,
+            website:Website,logo:{id:data.ETag,url:data.Location},
+            banner:{id:data2.ETag,url:data2.Location}})
       if(companyData){
         return res.status(200).json({message:"Company Created SuccessFully :)",data:companyData});
       }else{
@@ -86,7 +90,7 @@ export const CreateCompany = async (req,res)=>{
       }
     } catch (error) {
         console.log(error);
-        return res.status(400).json({message:error.keyValue});
+        return res.status(400).json({message:error});
     }
 }
 
